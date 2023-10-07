@@ -86,14 +86,14 @@
 
 
 
-.home {
+.home-chat {
     background-color: #a7bcff;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-   .home .container {
+   .home-chat .container-chat {
       border: 1px solid white;
       border-radius: 10px;
       width: 65%;
@@ -102,24 +102,24 @@
       overflow: hidden;
       
    }
-   .home .container .sidebar{
+   .home-chat .container-chat .sidebar-chat{
         flex:1;
         background-color: #3e3c61;
     }
-    .home .container .chat{
+    .home-chat .container-chat .chat{
         flex:2;
     }
     
-    .home .container .navbar {
+    .home-chat .container-chat .navbar-chat {
         display: flex;
         align-items: center;
         background-color: #2f2d52;
-        height: 30px;
+        height: 10%;
         padding: 10px;
         justify-content: space-between;
         color: #ddddf7;
     }
-     .navbar .logo {
+     .navbar-chat .logo {
           font-weight: bold;
          
         }
@@ -131,7 +131,7 @@
     gap: 10px;
 }        
 
-.navbar button {
+.navbar-chat button {
     background-color: #5d5b8d;
     color: #ddddf7;
     font-size: 10px;
@@ -153,7 +153,7 @@
   }
    .search .searchform {
       padding: 10px;
-      height: 20px;
+      height: fit-content;
    }
     .search .searchform  input {
         background-color: transparent;
@@ -167,7 +167,7 @@
     }
 
     .chat-user {
-        height: 30px;
+        height: 43px;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -193,14 +193,16 @@
             font-weight: 500;
           }
          .chat-user p {
-            font-size: 10px;
-            color: lightgray;
+          font-size: 10px;
+          color: lightgray;
+          padding: 10px;
+          margin: 0;
           }
           
           .chat-info{
             display: flex;
             align-items: center;
-            height: 7%;
+            height: 10%;
             padding: 10px;
             justify-content: space-between;
             color: #ddddf7;
@@ -214,7 +216,7 @@
             cursor: pointer;
           }
           .chat-input{
-            height: 5%;
+            height: 16%;
             background-color: white;
             padding: 10px;
             display: flex;

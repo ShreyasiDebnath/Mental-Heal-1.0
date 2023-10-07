@@ -4,7 +4,7 @@ import  Search  from './Search'
 import Chatsuser from './Chatsuser'
 function Sidebar() {
   return (
-    <div className='sidebar'>
+    <div className='sidebar-chat'>
         <Navbar/>
         <Search/>
         <Chatsuser/>

@@ -4,8 +4,8 @@ import Chatdemo from '../component/Chatdemo'
 
 function Home() {
   return (
-    <div className='home'>
-        <div className='container'>
+    <div className='home-chat'>
+        <div className='container-chat'>
             <Sidebar/>
               <Chatdemo/>  
         </div>
