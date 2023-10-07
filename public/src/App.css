@@ -129,6 +129,7 @@
 .user {
     display: flex;
     gap: 10px;
+    align-items: center;
 }        
 
 .navbar-chat button {
@@ -319,4 +320,94 @@
                 background-color: #8da4f1;
                 color: white;
                 border-radius: 10px 0px 10px 10px;
+              }
+
+              .container-videos{
+                background-color: #00FF00;
+                  border: 2px double #0000FF; 
+            /* Border style and color */
+                  padding: 5px;
+              }
+              .container-books{
+                background-color: #00FF00;
+                  border: 2px double #0000FF; 
+            /* Border style and color */
+                  padding: 5px; 
+                  
+              }
+              .container-fluid{
+                  background-color: #00FF00;
+                  border: 2px double #0000FF; 
+            /* Border style and color */
+                  padding: 5px; /* Padding inside the container */
+                  
+        
+              }
+             
+              
+              .container img {
+                  max-width: 100%; /* Make sure the image doesn't exceed the container width */
+              
+              }
+              
+                /* Style for the psychology facts container */
+                #psychology-facts-container {
+                    width: 100%; /* Cover the whole page horizontally */
+                    overflow: hidden;
+                }
+        
+                /* Style for the card container */
+                #psychology-facts-content {
+                    display: inline-block;
+                    white-space: nowrap;
+                    animation: scrollFacts 120s linear infinite; /* Adjust animation duration as needed */
+                }
+        
+                /* Style for the card */
+                .fact-card {
+                    display: inline-block;
+                    padding: 10px;
+                    background-color:  #008080;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    box-shadow: 2px 2px 5px #aaa;
+                    margin-right: 10px;
+                }
+        
+                /* Animation keyframes for scrolling */
+                @keyframes scrollFacts {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(calc(-100% - 5px)); /* 10px for spacing between cards */
+                    }
+                }
+                .quiz-container {
+                  max-width: 600px;
+                  margin: 0 auto;
+                  padding: 20px;
+                  background-color: #008080;
+                  border-radius: 10px;
+                  
+              }
+      
+              .question {
+                  font-size: 18px;
+                  font-weight: bold;
+                  margin-bottom: 10px;
+                  
+              }
+      
+              .options label {
+                  display: block;
+                  margin-bottom: 5px;
+              }
+      
+              .result {
+                  background-color:#006400;
+                  font-size: 20px;
+                  font-weight: bold;
+                  margin-top: 20px;
+      
               }

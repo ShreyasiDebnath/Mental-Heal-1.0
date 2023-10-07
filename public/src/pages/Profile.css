@@ -3,22 +3,39 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    
   }
   
   /* CSS for each individual profile */
   .profile {
     border: 2px solid blue;
     padding: 20px;
-    max-width: 300px;
+    width: fit-content;
     display: inline-block;
     margin: 10px;
   }
-  
-  .profile-img {
-    width: 60%;
-    max-width: 100px;
-    height: auto;
+  .user-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:50px;
+    margin:30px;
+  }
+  .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     margin-bottom: 20px;
+    object-fit: cover;
+    margin: 20px;
+  }
+  .user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    margin: 20px;
   }
   
   .profile-name {
@@ -41,11 +58,16 @@
   }
   
   .rating button {
-    background: rgb(215, 81, 14); /* Change this to your desired button background color */
+    background: rgb(215, 81, 14);
     border: rgb(188, 10, 10);
     cursor: pointer;
     padding: 0;
-    margin: 0 3px; /* Reduce the margin around buttons */
+    margin: 0 3px;
+    display: flex;
+    align-items: center;
+  }
+  .rating button i {
+   padding: 5px;
   }
   
   .profile-details {
@@ -57,4 +79,13 @@
     content: "\2605";
     color: gold;
   }
-  
+  .new-post{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    
+  }
+  .new-post input,textarea,button,h2{
+    margin:10px;
+    font-size: 18px;
+  }

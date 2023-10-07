@@ -14,6 +14,8 @@ function Chatdemo() {
         <div className='chat-info '>
             <span>{data.user?.displayName}</span>
             <div className='chat-icon'>
+
+              
                 <img src={add} alt='cam'/>
                 <img src={cam} alt='cam'/>
                 <img src={more} alt='cam'/>

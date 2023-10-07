@@ -8,6 +8,9 @@ import { useContext } from "react";
 import Chatdemo from "./component/Chatdemo";
 import { AuthContext } from "./context/AuthContext";
 import Comhome from "./component/Comhome";
+import Post from "./pages/Post"
+import Profile from "./pages/Profile"
+import Quiz from "./pages/Quiz";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -34,6 +37,9 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/chat" element={<Chatdemo/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path='/post' element={<Post/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/quiz' element={<Quiz/>}/>
       </Routes>
 
     </Router>
