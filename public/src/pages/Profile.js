@@ -45,7 +45,7 @@ function DoctorProfile({ doctor }) {
   return (
     <section className="profile">
       <figure>
-        <img className="profile-img" src={doctor.image} alt={`Profile of ${doctor.name}`} />
+        {/* <img className="profile-img" src={doctor.image} alt={`Profile of ${doctor.name}`} /> */}
         <figcaption className="profile-name">{doctor.name}</figcaption>
       </figure>
 

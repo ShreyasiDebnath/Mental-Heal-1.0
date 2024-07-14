@@ -29,14 +29,14 @@ function App() {
             index
             element={
               <ProtectedRoute>
-                <Comhome />
+                <Home />
               </ProtectedRoute>
             }
           />
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/chat" element={<Chatdemo/>}/>
-        <Route path='/home' element={<Home/>}/>
+         <Route path='/' element={<Home/>}/> 
         <Route path='/post' element={<Post/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/quiz' element={<Quiz/>}/>
