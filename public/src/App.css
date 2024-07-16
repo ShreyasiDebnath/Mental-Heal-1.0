@@ -84,7 +84,9 @@
   
 
 
-
+.chat{
+  height:100vh;
+}
 
 .home-chat {
     background-color: #a7bcff;
