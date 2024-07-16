@@ -7,7 +7,7 @@ function Home() {
     <div className='home-chat'>
         <div className='container-chat'>
             <Sidebar/>
-              <Chatdemo/>  
+               
         </div>
     </div>
   )
