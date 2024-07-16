@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   collection,
   query,
@@ -12,12 +12,38 @@ import {
 } from "firebase/firestore";
 import { db } from "../Firebase";
 import { AuthContext } from "../context/AuthContext";
+
 const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
 
   const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (username.length > 0) {
+      const fetchSuggestions = async () => {
+        const q = query(
+          collection(db, "users"),
+          where("displayName", "==", username)
+        );
+        try {
+          const querySnapshot = await getDocs(q);
+          const users = [];
+          querySnapshot.forEach((doc) => {
+            users.push(doc.data());
+          });
+          setSuggestions(users);
+        } catch (err) {
+          setErr(true);
+        }
+      };
+      fetchSuggestions();
+    } else {
+      setSuggestions([]);
+    }
+  }, [username]);
 
   const handleSearch = async () => {
     const q = query(
@@ -30,6 +56,7 @@ const Search = () => {
       querySnapshot.forEach((doc) => {
         setUser(doc.data());
       });
+      setErr(false);
     } catch (err) {
       setErr(true);
     }
@@ -39,30 +66,27 @@ const Search = () => {
     e.code === "Enter" && handleSearch();
   };
 
-  const handleSelect = async () => {
-    //check whether the group(chats in firestore) exists, if not create
+  const handleSelect = async (selectedUser) => {
     const combinedId =
-      currentUser.uid > user.uid
-        ? currentUser.uid + user.uid
-        : user.uid + currentUser.uid;
+      currentUser.uid > selectedUser.uid
+        ? currentUser.uid + selectedUser.uid
+        : selectedUser.uid + currentUser.uid;
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
 
       if (!res.exists()) {
-        //create a chat in chats collection
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
-        //create user chats
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
-            uid: user.uid,
-            displayName: user.displayName,
-            photoURL: user.photoURL,
+            uid: selectedUser.uid,
+            displayName: selectedUser.displayName,
+            photoURL: selectedUser.photoURL,
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
 
-        await updateDoc(doc(db, "userChats", user.uid), {
+        await updateDoc(doc(db, "userChats", selectedUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
             displayName: currentUser.displayName,
@@ -74,8 +98,10 @@ const Search = () => {
     } catch (err) {}
 
     setUser(null);
-    setUsername("")
+    setUsername("");
+    setSuggestions([]);
   };
+
   return (
     <div className="search">
       <div className="searchform">
@@ -88,14 +114,21 @@ const Search = () => {
         />
       </div>
       {err && <span>User not found!</span>}
-      {user && (
-        <div className="chat-user" onClick={handleSelect}>
-          <img src={user.photoURL} alt="" />
-          <div className="user-chat-info">
-            <span>{user.displayName}</span>
+      <div className="suggestions">
+        {suggestions.map((suggestedUser) => (
+          <div
+            key={suggestedUser.uid}
+            className="chat-user"
+            onClick={() => handleSelect(suggestedUser)}
+          >
+            <img src={suggestedUser.photoURL} alt="" />
+            <div className="user-chat-info">
+              <span>{suggestedUser.displayName}</span>
+              <button onClick={() => handleSelect(suggestedUser)}>Add</button>
+            </div>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 };

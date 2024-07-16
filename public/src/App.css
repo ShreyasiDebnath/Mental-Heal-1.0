@@ -427,4 +427,61 @@
               .tick.seen {
                 color: #f39c12; /* Color for seen */
               }
+              .search {
+                width: 100%;
+                max-width: 400px;
+                margin: auto;
+              }
+              
+              .searchform input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+              }
+              
+              .suggestions {
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+              }
+              
+              .chat-user {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                
+                cursor: pointer;
+              }
+              
+              .chat-user img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+              }
+              
+              .user-chat-info {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+              }
+              
+              .user-chat-info span {
+                font-weight: bold;
+              }
+              
+              .user-chat-info button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+              }
+              
+              .user-chat-info button:hover {
+                background-color: #0056b3;
+              }
+              
               
